@@ -37,7 +37,7 @@ void backward(int row, double Ab[row][row+1], double x[row]){
   for(i = row-1; i >= 0; i--){
     for(j = i + 1; j < row; j++){
       Ab[i][j] = Ab[i][j] * x[j];
-      x[i] -= Ab[i][j];
+      Ab[i][row] += -1 * Ab[i][j];
     }
     x[i] = Ab[i][row] / Ab[i][i];
   }
